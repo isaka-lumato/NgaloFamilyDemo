@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="sw">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f5ef" />
+  <title>NGALO FAMILY — Familia Yetu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="NGALO FAMILY mwanzo"><span class="brand-mark">N</span><span><strong>NGALO FAMILY</strong><small>JAMII YA FAMILIA</small></span></a>
+      <div class="nav-label">MENYU</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">⌂</span>Muhtasari</button>
+        <button class="nav-item" data-page="members"><span class="nav-icon">◎</span>Wanafamilia<span class="nav-count" id="memberNavCount">12</span></button>
+        <button class="nav-item" data-page="contributions"><span class="nav-icon">◫</span>Michango</button>
+        <button class="nav-item" data-page="education"><span class="nav-icon">◇</span>Msaada wa Elimu</button>
+        <button class="nav-item" data-page="loans"><span class="nav-icon">↗</span>Mikopo</button>
+        <button class="nav-item" data-page="shirts"><span class="nav-icon">▤</span>Fulana za Mwaka</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="year-selector"><span class="year-dot"></span><span><small>MWAKA WA FAMILIA</small><strong id="sidebarYear">2026</strong></span><button id="yearSwitch" aria-label="Badili mwaka">⌄</button></div>
+        <div class="profile"><div class="avatar avatar-dark">JN</div><span><strong>Joseph Ngalo</strong><small>Katibu wa familia</small></span><button id="resetData" class="reset-btn" title="Rejesha data za mfano" aria-label="Rejesha data za mfano">↻</button></div>
+      </div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><button class="mobile-menu" id="mobileMenu" aria-label="Fungua menyu">☰</button><div class="breadcrumb">NGALO FAMILY <span>/</span> <strong id="breadcrumbLabel">MUHTASARI</strong></div><div class="top-actions"><span class="demo-pill"><i></i> MFANO</span><button class="icon-button" id="helpButton" aria-label="Kuhusu mfano huu">?</button><div class="avatar avatar-green">JN</div></div></header>
+      <div class="content" id="content"></div>
+      <footer class="app-footer"><span>NGALO FAMILY <span class="footer-sep">·</span> TOVUTI YA FAMILIA</span><span>DATA ZA MFANO ZIMEHIFADHIWA KWENYE KIFAA HIKI</span></footer>
+    </main>
+  </div>
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+  <dialog id="formDialog" class="form-dialog"><form id="recordForm" method="dialog"><div class="dialog-head"><div><div class="eyebrow" id="dialogEyebrow">REKODI MPYA</div><h2 id="dialogTitle">Ongeza rekodi</h2></div><button type="button" class="close-dialog" aria-label="Funga">×</button></div><div class="form-fields" id="formFields"></div><div class="dialog-actions"><button type="button" class="button button-quiet close-dialog">Ghairi</button><button type="submit" class="button button-primary" id="submitLabel">Hifadhi rekodi <span>→</span></button></div></form></dialog>
+  <dialog id="infoDialog" class="form-dialog info-dialog"><div class="dialog-head"><div><div class="eyebrow">KUHUSU MFANO HUU</div><h2>NGALO FAMILY, pamoja.</h2></div><button class="close-dialog" aria-label="Funga">×</button></div><p>Huu ni mfano shirikishi wa kusimamia shughuli za familia kila mwaka. Mabadiliko yanahifadhiwa kwenye kivinjari hiki pekee; bado hakuna akaunti za pamoja wala seva.</p><div class="info-callout"><strong>Kumbuka</strong><span>Tumia kitufe cha kurejesha data kwenye menyu kurudisha data za mfano.</span></div><div class="dialog-actions"><button class="button button-primary close-dialog">Sawa <span>→</span></button></div></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
