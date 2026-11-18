@@ -20,3 +20,27 @@ th{font-size:10px}td{font-size:12px}.member-meta small{font-size:11px}.member-ce
 .shirt-summary strong{font-size:15px}.shirt-summary p{font-size:12px}.loan-total{font-size:14px}
 .dialog-head h2{font-size:22px}.field label{font-size:12px}.field input,.field select,.field textarea{height:41px;font-size:13px}.field textarea{height:76px}.field-help{font-size:11px}.info-dialog p{font-size:14px}.info-callout{font-size:12px}.toast{font-size:13px}
 @media(max-width:760px){.page-intro h1{font-size:27px}.hero-title{font-size:23px}.app-footer{font-size:9px}.metric-value{font-size:21px}.metric-head,.metric-foot{font-size:10px}.progress-row .label{font-size:11px}.progress-row .amount{font-size:10px}}
+
+/* NGALO FAMILY brand palette: warm orange with white surfaces. */
+:root{--paper:#fffaf5;--white:#fff;--ink:#3d3028;--muted:#8e8178;--line:#f0e6dd;--green:#d96b2b;--green-dark:#b84e1b;--lime:#ffe0c9;--amber:#e8b45f;--shadow:0 12px 34px rgba(100,55,28,.08)}
+.brand-mark,.button-primary{background:#d96b2b}
+.button-primary:hover{background:#b84e1b}
+.nav-item.active{background:#fff0e5;color:#9d451d}
+.nav-item.active .nav-icon,.text-link{color:#c75a22}
+.year-dot,.demo-pill i{background:#e48042}
+.year-dot{box-shadow:0 0 0 4px #fff0e5}
+.demo-pill,.metric-icon,.activity-icon{background:#fff0e5;color:#bd5721}
+.progress i{background:#e18449}
+.progress-note strong,.metric-foot em{color:#b95723}
+.hero-panel{background:#c75d25}
+.hero-title span{color:#ffe0c9}
+.avatar-dark,.avatar-green{background:#fff0e5;color:#a94b1c}
+.nav-item:hover,.button-quiet:hover{background:#fff7f0}
+.support-avatar,.member-cell .avatar{background:#fff0e5;color:#b85822}
+.pill-green{background:#fff0e5;color:#b6531f}
+.pill-amber{background:#fff5e4;color:#9a7029}
+.size-chip,.year-selector{background:#fffaf5}
+.shirt-art{background:#fff0e5;color:#bf5721}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#e2a078;box-shadow:0 0 0 3px #fff0e5}
+.toast{background:#b84e1b}
+.toast.error{background:#a95e49}

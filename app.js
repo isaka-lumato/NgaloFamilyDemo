@@ -14,7 +14,7 @@
     const loans=[{id:'l1',memberId:'m3',year:2026,principal:400000,rate:15,date:'2026-01-27',dueDate:'2026-08-30',repaid:200000},{id:'l2',memberId:'m7',year:2026,principal:250000,rate:15,date:'2026-02-16',dueDate:'2026-09-16',repaid:100000},{id:'l3',memberId:'m9',year:2026,principal:300000,rate:15,date:'2026-03-08',dueDate:'2026-10-08',repaid:0}];
     const shirts=members.filter(m=>m.status==='Active').map((m,i)=>({id:'s'+m.id,memberId:m.id,year:2026,size:['M','L','XL','L','2XL','M','XL','L','M','2XL','L'][i],issued:i<7,issuedDate:i<7?'2026-03-'+String(10+i).padStart(2,'0'):''}));
     const activity=[{kind:'contribution',text:'Asha NGALO amekamilisha mchango wake wa mwaka',date:'2026-04-08',time:'Siku 2 zilizopita'},{kind:'loan',text:'Mkopo wa TSh 300,000 umetolewa kwa Neema NGALO',date:'2026-04-06',time:'Siku 4 zilizopita'},{kind:'education',text:'Ada ya shule ya Mariam NGALO imelipwa',date:'2026-04-02',time:'Wiki 1 iliyopita'},{kind:'shirt',text:'Frank NGALO amechukua fulana yake ya familia',date:'2026-03-26',time:'Wiki 2 zilizopita'}];
-    return {settings:{activeYear:2026,threshold:250000,meetingDate:'2026-12-20',loanRate:15},members,contributions,children,loans,shirts,activity};
+    return {settings:{activeYear:2026,threshold:250000,meetingDate:'2026-12-27',loanRate:15},members,contributions,children,loans,shirts,activity};
   }
   let db;
   try { db=JSON.parse(localStorage.getItem(KEY)) || seed(); } catch { db=seed(); }
@@ -42,7 +42,7 @@
     const c=currentContributions(), paid=c.reduce((s,x)=>s+x.amount,0), target=db.members.filter(m=>m.status==='Active').length*db.settings.threshold;
     const ls=currentLoans(), out=ls.reduce((s,l)=>s+outstanding(l),0), education=db.children.reduce((s,x)=>s+x.paid,0), issued=currentShirts().filter(s=>s.issued).length;
     const complete=db.members.filter(m=>m.status==='Active'&&c.filter(x=>x.memberId===m.id).reduce((s,x)=>s+x.amount,0)>=db.settings.threshold).length;
-    const meeting=new Date(db.settings.meetingDate+'T12:00:00');
+    const meeting=new Date(`${year()}-12-27T12:00:00`);
     return `${intro('MWAKA WA FAMILIA '+year(),'Familia imara, pamoja.','Muhtasari wa shughuli na ahadi za familia kwa mwaka huu.',`<button class="button button-primary" data-add="contribution"><span>＋</span> Rekodi mchango</button>`)}
       <section class="hero-panel"><div class="hero-copy"><div class="hero-overline">NGALO FAMILY · ${year()} KWA MUHTASARI</div><div class="hero-title">Tukiwa pamoja,<br><span>tunafanikiwa zaidi.</span></div><p>Ona maendeleo ya familia kwa urahisi.</p></div><div class="hero-meeting"><small>MKUTANO UJAO WA FAMILIA</small><strong>${meeting.toLocaleDateString('sw-TZ',{day:'numeric',month:'long',year:'numeric'})}</strong><span>Mkutano wa mwaka wa familia</span></div></section>
       <section class="metrics">${metric('MICHANGO ILIYOPOKELEWA',money(paid),`<em>${Math.round(target?paid/target*100:0)}%</em> kati ya ${money(target)} lengo la familia`,'◫')}${metric('WANAFAMILIA WALIOTIMIZA',`${complete} / ${db.members.filter(m=>m.status==='Active').length}`,`<em>${db.members.filter(m=>m.status==='Active').length-complete} wanafamilia</em> bado wanaendelea kufikia lengo`,'◎')}${metric('SALIO LA MIKOPO',money(out),`${ls.filter(l=>outstanding(l)>0).length} mikopo hai · ${db.settings.loanRate}% riba ya familia`,'↗')}${metric('WATOTO WANAOSAIDIWA',db.children.length,`${money(education)} zimelipwa kwa msaada wa elimu`,'◇')}</section>
